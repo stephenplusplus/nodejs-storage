@@ -42,7 +42,10 @@ workflows:
             - docs
           filters:
             branches:
-              only: repo-migration
+              only:
+                - master
+                - refresh-docs
+                - repo-migration
             tags:
               only: /^v[\d.]+$/
       - sample_tests:
@@ -51,7 +54,10 @@ workflows:
             - docs
           filters:
             branches:
-              only: repo-migration
+              only:
+                - master
+                - refresh-docs
+                - repo-migration
             tags:
               only: /^v[\d.]+$/
       - publish_npm:
