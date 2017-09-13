@@ -205,6 +205,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install modules and dependencies.
+          command: npm install
+      - run:
           name: Publish the docs.
           command: .circleci/publish_docs.sh
     working_directory: /var/code/npm_module/

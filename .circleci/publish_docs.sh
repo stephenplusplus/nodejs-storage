@@ -14,7 +14,7 @@
 # limitations under the License.
 
 # Note: This script is assumed to start in the base repository directory.
-REPO_DIR=`dirname $0`
+REPO_DIR=`dirname $(dirname $0)/..`
 
 # Build the docs.
 npm run docs
