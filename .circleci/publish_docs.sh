@@ -23,7 +23,7 @@ npm run docs
 MODULE_VERSION=`npm version | head -n 1 | grep -o -P "[\\d.]+"`
 if [ -n $CIRCLE_TAG ] || [ $CIRCLE_BRANCH == 'refresh-docs']; then
   PUBLISH_VERSION=$MODULE_VERSION
-else if [ $CIRCLE_BRANCH == 'master' ]; then
+elif [ $CIRCLE_BRANCH == 'master' ]; then
   PUBLISH_VERSION='latest'
 fi
 
