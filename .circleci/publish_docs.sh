@@ -28,7 +28,7 @@ elif [ $CIRCLE_BRANCH == 'master' ]; then
 fi
 
 # Where are the docs?
-DOCS_LOCATION=`find . -type d -name "$MODULE_VERSION"`
+DOCS_LOCATION=`realpath $(find . -type d -name "$MODULE_VERSION")`
 
 # Clone the gh-pages branch in a separate repo.
 git clone ${CIRCLE_REPOSITORY_URL} ../gh-pages/
@@ -38,6 +38,10 @@ git checkout --track -b gh-pages origin/gh-pages
 # Copy the docs to where they belong.
 cp -R ${DOCS_LOCATION}/ ${PUBLISH_VERSION}/
 git add ${PUBLISH_VERSION}/
+
+# Make the commit from googleapis-publisher.
+git config user.name "Google APIs"
+git config user.email "googleapis-publisher@google.com"
 
 # Commit the docs.
 git add ${PUBLISH_VERSION}/
